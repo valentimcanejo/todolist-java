@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".DetalhesTarefa">
+
+    <TextView
+        android:id="@+id/labelNome"
+        android:text="Nome da Tarefa:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/nomeTarefaTextView"
+        android:layout_below="@id/labelNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100px"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/labelDescricao"
+        android:layout_below="@id/nomeTarefaTextView"
+        android:text="Descrição da Tarefa:"
+        android:layout_width="match_parent"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/descricaoTarefaTextView"
+        android:layout_below="@id/labelDescricao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp" />
+</RelativeLayout>

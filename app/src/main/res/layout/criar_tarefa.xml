@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".CriarTarefa">
+
+    <EditText
+        android:id="@+id/nomeTarefaText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome da Tarefa"
+        android:layout_marginBottom="40px"/>
+
+    <EditText
+        android:id="@+id/descricaoTarefaText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nomeTarefaText"
+        android:hint="Descrição da Tarefa"
+        android:layout_marginBottom="40px"/>
+
+    <Button
+        android:id="@+id/criarTarefaButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/descricaoTarefaText"
+        android:layout_marginTop="16dp"
+        android:text="Criar" />
+</RelativeLayout>
