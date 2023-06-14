@@ -1,6 +1,9 @@
 package com.example.myapplication;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,8 +17,15 @@ public class CriarTarefa extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.criar_tarefa);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         nomeEditText = findViewById(R.id.nomeTarefaText);
         descricaoEditText = findViewById(R.id.descricaoTarefaText);
+
 
         Button criarButton = findViewById(R.id.criarTarefaButton);
         criarButton.setOnClickListener(new View.OnClickListener() {
@@ -30,4 +40,13 @@ public class CriarTarefa extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

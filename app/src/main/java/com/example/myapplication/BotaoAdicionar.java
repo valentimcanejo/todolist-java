@@ -8,8 +8,8 @@ import android.util.AttributeSet;
 import android.view.View;
 
 public class BotaoAdicionar extends View {
-    private Paint circlePaint;
-    private Paint plusPaint;
+    private Paint circulo;
+    private Paint sinalAdicionar;
 
     public BotaoAdicionar(Context context) {
         super(context);
@@ -27,35 +27,33 @@ public class BotaoAdicionar extends View {
     }
 
     private void init() {
-        circlePaint = new Paint();
-        circlePaint.setColor(Color.CYAN);
-        circlePaint.setAntiAlias(true);
+        circulo = new Paint();
+        circulo.setColor(Color.CYAN);
 
-        plusPaint = new Paint();
-        plusPaint.setColor(Color.WHITE);
-        plusPaint.setStrokeWidth(10);
-        plusPaint.setAntiAlias(true);
-        plusPaint.setStyle(Paint.Style.STROKE);
+        sinalAdicionar = new Paint();
+        sinalAdicionar.setColor(Color.WHITE);
+        sinalAdicionar.setStrokeWidth(10);
+        sinalAdicionar.setStyle(Paint.Style.STROKE);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        int width = getWidth();
-        int height = getHeight();
-        int radius = Math.min(width, height) / 2;
+        int largura = getWidth();
+        int altura = getHeight();
+        int radius = Math.min(largura, altura) / 2;
 
-        canvas.drawCircle(width / 2, height / 2, radius, circlePaint);
+        canvas.drawCircle(largura / 2, altura / 2, radius, circulo);
 
         int tamanho = radius / 3;
 
-        Path plusPath = new Path();
-        plusPath.moveTo(width / 2, height / 2 - tamanho);
-        plusPath.lineTo(width / 2, height / 2 + tamanho);
-        plusPath.moveTo(width / 2 - tamanho, height / 2);
-        plusPath.lineTo(width / 2 + tamanho, height / 2);
+        Path sinal = new Path();
+        sinal.moveTo(largura / 2, altura / 2 - tamanho);
+        sinal.lineTo(largura / 2, altura / 2 + tamanho);
+        sinal.moveTo(largura / 2 - tamanho, altura / 2);
+        sinal.lineTo(largura / 2 + tamanho, altura / 2);
 
-        canvas.drawPath(plusPath, plusPaint);
+        canvas.drawPath(sinal, sinalAdicionar);
     }
 }

@@ -3,36 +3,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".DetalhesTarefa">
 
-    <TextView
-        android:id="@+id/labelNome"
-        android:text="Nome da Tarefa:"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="20sp" />
-    <TextView
-        android:id="@+id/nomeTarefaTextView"
-        android:layout_below="@id/labelNome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100px"
-        android:textSize="20sp" />
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+       />
 
-    <TextView
-        android:id="@+id/labelDescricao"
-        android:layout_below="@id/nomeTarefaTextView"
-        android:text="Descrição da Tarefa:"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:textColor="@color/black"
-        android:layout_height="wrap_content"
-        android:textSize="20sp" />
-    <TextView
-        android:id="@+id/descricaoTarefaTextView"
-        android:layout_below="@id/labelDescricao"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/labelNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nome da Tarefa:"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/nomeTarefaTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginBottom="100px" />
+
+        <TextView
+            android:id="@+id/labelDescricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Descrição da Tarefa:"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/descricaoTarefaTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
 </RelativeLayout>

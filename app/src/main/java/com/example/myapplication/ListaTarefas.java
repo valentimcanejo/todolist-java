@@ -2,6 +2,9 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -10,7 +13,7 @@ import android.widget.AdapterView;
 
 public class ListaTarefas extends AppCompatActivity {
     private ArrayAdapter<String> adapter;
-    private GerenciadorDeTarefas taskManager;
+    private GerenciadorDeTarefas gerenciadorTarefas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,20 +21,20 @@ public class ListaTarefas extends AppCompatActivity {
         setContentView(R.layout.lista_tarefas);
 
         ListView listView = findViewById(R.id.taskListView);
-        taskManager = GerenciadorDeTarefas.getInstance();
-        List<String> taskList = taskManager.getNomesTarefas();
+        gerenciadorTarefas = GerenciadorDeTarefas.getInstance();
+        List<String> taskList = gerenciadorTarefas.getNomesTarefas();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, taskList);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String taskName = adapter.getItem(position);
-                String taskDescription = taskManager.getListaTarefas().get(position).getDescricao();
+                String nomeTarefa = adapter.getItem(position);
+                String descricaoTarefa = gerenciadorTarefas.getListaTarefas().get(position).getDescricao();
 
                 Intent intent = new Intent(ListaTarefas.this, DetalhesTarefa.class);
-                intent.putExtra(DetalhesTarefa.NOME_TAREFA, taskName);
-                intent.putExtra(DetalhesTarefa.DESCRICAO_TAREFA, taskDescription);
+                intent.putExtra(DetalhesTarefa.NOME_TAREFA, nomeTarefa);
+                intent.putExtra(DetalhesTarefa.DESCRICAO_TAREFA, descricaoTarefa);
                 startActivity(intent);
             }
         });
@@ -47,10 +50,11 @@ public class ListaTarefas extends AppCompatActivity {
         });
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
-        List<String> taskList = taskManager.getNomesTarefas();
+        List<String> taskList = gerenciadorTarefas.getNomesTarefas();
         adapter.clear();
         adapter.addAll(taskList);
         adapter.notifyDataSetChanged();

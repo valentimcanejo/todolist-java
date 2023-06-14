@@ -23,8 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ListaTarefas" />
-        <activity android:name=".DetalhesTarefa" />
-        <activity android:name=".CriarTarefa" />
+        <activity android:name=".DetalhesTarefa" android:theme="@style/Theme.MyApplication.NoActionBar" />
+        <activity android:name=".CriarTarefa" android:theme="@style/Theme.MyApplication.NoActionBar" />
     </application>
 
 </manifest>

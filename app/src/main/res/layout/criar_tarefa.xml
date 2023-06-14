@@ -3,14 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".CriarTarefa">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:padding="16dp"
+        android:orientation="vertical">
     <EditText
         android:id="@+id/nomeTarefaText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nome da Tarefa"
+        android:textColor="@color/black"
         android:layout_marginBottom="40px"/>
 
     <EditText
@@ -19,6 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/nomeTarefaText"
         android:hint="Descrição da Tarefa"
+        android:textColor="@color/black"
         android:layout_marginBottom="40px"/>
 
     <Button
@@ -28,4 +44,5 @@
         android:layout_below="@id/descricaoTarefaText"
         android:layout_marginTop="16dp"
         android:text="Criar" />
+    </LinearLayout>
 </RelativeLayout>
